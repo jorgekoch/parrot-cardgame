@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #EEF9BF;
+}
+
+
+header {
+    margin-top: 40px;  
+}
+
+h1 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 56px;
+    color: #75B79E;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.card {
+    width: 117px;
+    height: 146px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A7E9AF;
+    border-radius: 5px;
+    border: 1px solid #99CEA8
+}
