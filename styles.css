@@ -31,9 +31,13 @@ img {
 }
 
 .card {
+    margin: 10px;
     width: 117px;
     height: 146px;
     position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
 }
 
 .face {
@@ -44,26 +48,25 @@ img {
     align-items: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
-    transform-style: preserve-3d;
     background-color: #A7E9AF;
     border-radius: 5px;
-    border: 1px solid #99CEA8
+    border: 1px solid #99CEA8;
 }
 
 .back-face {
     transform: rotateY(180deg);
-  }
-  
-.card:hover .back-face {
+}
+
+.card.flipped .back-face {
     transform: rotateY(0deg);
-  }
-  
-.card:hover .front-face {
+}
+
+.card.flipped .front-face {
     transform: rotateY(-180deg);
-  }
+}
+
 
 .allCards {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
