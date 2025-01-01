@@ -1,4 +1,6 @@
 let qtdCartas = 0;
+let jogadas = 0; // Contador de jogadas
+let paresEncontrados = 0; // Contador de pares encontrados
 
 function numeroCartas() {
     qtdCartas = parseInt(prompt("Com quantas cartas deseja jogar (escolha um número par entre 4 e 14)?"));
@@ -27,8 +29,11 @@ function embaralhar() {
 function adicionarCartas() {
     const div = document.querySelector(".allCards");
 
-    let cartasEscolhidas = gifCartas.slice(0, qtdCartas / 2);
-    cartasEscolhidas = [...cartasEscolhidas, ...cartasEscolhidas];
+    let cartasEscolhidas = [];
+    for (let i = 0; i < qtdCartas / 2; i++) {
+        cartasEscolhidas.push(gifCartas[i]);
+        cartasEscolhidas.push(gifCartas[i]);
+    }
 
     cartasEscolhidas.sort(embaralhar);
 
@@ -59,6 +64,7 @@ function virarCarta(carta) {
     }
 
     carta.classList.add('flipped');
+    jogadas++; // Incrementar contador de jogadas
 
     if (!primeiraCarta) {
         primeiraCarta = carta;
@@ -76,7 +82,9 @@ function verificarPar() {
     if (gifPrimeira === gifSegunda) {
         primeiraCarta.classList.add('matched');
         segundaCarta.classList.add('matched');
+        paresEncontrados++; // Incrementar contador de pares encontrados
         resetarJogada();
+        verificarFimDeJogo(); // Verificar se o jogo terminou
     } else {
         bloqueio = true;
         setTimeout(() => {
@@ -90,4 +98,10 @@ function verificarPar() {
 function resetarJogada() {
     [primeiraCarta, segundaCarta] = [null, null];
     bloqueio = false;
+}
+
+function verificarFimDeJogo() {
+    if (paresEncontrados === qtdCartas / 2) {
+        alert(`Você ganhou em ${jogadas} jogadas!`);
+    }
 }

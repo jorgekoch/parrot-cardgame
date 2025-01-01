@@ -69,4 +69,18 @@ img {
 .allCards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 550px) {
+    h1 {
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 36px;
+        color: #75B79E;
+        text-align: center;
+
+    }
 }
